@@ -1,0 +1,54 @@
+.section{
+    padding:10px; 
+    margin-bottom: 10px;
+    background-color: white;
+    border: 1px solid #dddfe2;
+    border-radius: 5px;
+
+}
+
+.new-story{
+    display: flex;
+    align-items: center;
+    margin:5px 0 5px 0;
+    
+
+    // grid-template-areas: 
+    //     "user preview preview";
+        
+    // grid-gap: 20px;
+    height: 56px;
+    width: 284px;
+
+    
+    .user{
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        height: 56px;
+        width: 56px;
+        border: solid  #4267b2 1px;
+        border-radius: 50px;
+        margin-right: 10px;
+        
+        img{
+            height: 50px;
+            width: 50px;
+            margin: auto auto;
+            border-radius: 50px;
+        }        
+    }
+    .story-preview{
+
+        // grid-area: preview;
+        .user-title{
+            color:  #4267b2;
+            
+        }
+
+        span{
+            display: block;
+        }
+    
+    }
+}

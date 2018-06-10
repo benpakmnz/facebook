@@ -1,0 +1,65 @@
+.nav-bar{
+    height: 100%;
+    font-size: 13px;
+    .nav-bar-container{
+        position: fixed;
+        width: 185px;
+    }
+}
+
+ul{
+    
+    list-style-type: none;
+    padding-left: 0;
+    }
+
+    li{
+        display:flex;
+        align-items: center;
+        font-size: 13px;
+        color: #1d2129;
+        font-family: 'Roboto', sans-serif; 
+        height: 26px;
+        width: 100%;
+        padding-left: 5px;
+        border: solid 1px #E9EBEE;
+            
+
+        
+        }
+        ul :hover{
+            background-color: #F6F7F9;
+            border: solid 1px #e0e0e0;
+
+           
+            
+        }
+
+    .icons{     
+        background-image: url('../img/nav-bar/nav-bar-icons.png');
+        width: 20px;
+        height:20px;
+        margin-right: 5px;
+        display:inline-block;
+    }
+
+
+    .news-feed{
+        background-position: 0 -1485px;
+    }  
+    .Messages{
+        background-position: 0 -1044px;
+    }  
+    .Marketplace{
+        background-position: 0 -1443px;
+    }  
+    .Photos{
+        background-position: 0 -1674px;
+    }  
+    .Browse{
+        background-position: 0 -1611px;
+    }  
+    .nav-section span.title{
+        font-weight: bold;
+        line-height: 13px;   
+    }

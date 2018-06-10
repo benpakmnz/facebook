@@ -1,0 +1,21 @@
+
+.nav-bar-container{
+    position: fixed;
+}
+
+.nav-section span.title{
+    font-weight: bold;
+    line-height: 13px;
+
+    ul{
+        margin-top: 5px;
+        padding-left: 20px;
+    }
+
+    .li{
+        font-size: 13px;
+        color: #1d2129;
+        line-height: 17px;  
+        font-family: 'Roboto', sans-serif;
+    }
+}

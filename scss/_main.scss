@@ -1,0 +1,23 @@
+
+.main article{
+    background-color: white;
+    border: 1px solid #dddfe2;
+    border-radius: 5px;
+    height: 200px;
+    margin-bottom: 10px;
+    padding: 10px;
+    }
+.status{
+    height: 100px;
+    background-color: white;
+    border: 1px solid #dddfe2;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    .nav{
+        padding: 5px 5px 10px 5px;
+        background-color: #f6f7f9;
+        border-bottom: 1px solid #dddfe2;
+        border-radius: 5px 5px 0 0 ;
+    }
+
+}
