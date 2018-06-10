@@ -1,0 +1,100 @@
+
+benpakmnz@benpakmnz-HP MINGW64 ~/Creative Cloud Files/facebook (master)
+$ git init
+Initialized empty Git repository in C:/Users/benpakmnz/Creative Cloud Files/facebook/.git/
+
+benpakmnz@benpakmnz-HP MINGW64 ~/Creative Cloud Files/facebook (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        _nav-bar2.scss
+        css/
+        facebook.html
+        img/
+        scss/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+benpakmnz@benpakmnz-HP MINGW64 ~/Creative Cloud Files/facebook (master)
+$ git add .
+warning: LF will be replaced by CRLF in css/error-mode.css.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in css/error.css.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in css/home.css.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in css/index.css.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in css/master_a-master-copy.css.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in css/master_a-master.css.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in css/medical-and-more.css.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in css/site_global.css.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in css/styles.css.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in css/summit.css.
+The file will have its original line endings in your working directory.
+
+benpakmnz@benpakmnz-HP MINGW64 ~/Creative Cloud Files/facebook (master)
+$ git commit -m "facebook3"
+[master (root-commit) 3a29728] facebook3
+ 25 files changed, 18241 insertions(+)
+ create mode 100644 _nav-bar2.scss
+ create mode 100644 css/error-mode.css
+ create mode 100644 css/error.css
+ create mode 100644 css/home.css
+ create mode 100644 css/index.css
+ create mode 100644 css/master_a-master-copy.css
+ create mode 100644 css/master_a-master.css
+ create mode 100644 css/medical-and-more.css
+ create mode 100644 css/normelize.css
+ create mode 100644 css/site_global.css
+ create mode 100644 css/styles.css
+ create mode 100644 css/summit.css
+ create mode 100644 facebook.html
+ create mode 100644 img/2PR36jF6Xbk.png
+ create mode 100644 img/Thumbs.db
+ create mode 100644 img/ed.jpg
+ create mode 100644 img/header-icons.png
+ create mode 100644 img/nav-bar/nav-bar-icons.png
+ create mode 100644 img/user-img.jpg
+ create mode 100644 scss/_container-grid.scss
+ create mode 100644 scss/_header.scss
+ create mode 100644 scss/_main.scss
+ create mode 100644 scss/_nav-bar.scss
+ create mode 100644 scss/_side-bar.scss
+ create mode 100644 scss/styles.scss
+
+benpakmnz@benpakmnz-HP MINGW64 ~/Creative Cloud Files/facebook (master)
+$ git remote add origin git@github.com:benpakmnz/facebook3.git
+
+benpakmnz@benpakmnz-HP MINGW64 ~/Creative Cloud Files/facebook (master)
+$ git push
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+
+benpakmnz@benpakmnz-HP MINGW64 ~/Creative Cloud Files/facebook (master)
+$ git push -u origin master
+Counting objects: 31, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (30/30), done.
+Writing objects: 100% (31/31), 181.41 KiB | 2.21 MiB/s, done.
+Total 31 (delta 5), reused 0 (delta 0)
+remote: Resolving deltas: 100% (5/5), done.
+To github.com:benpakmnz/facebook3.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+benpakmnz@benpakmnz-HP MINGW64 ~/Creative Cloud Files/facebook (master)
+$
