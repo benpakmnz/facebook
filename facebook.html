@@ -6,11 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>facebook-duplicate</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <script type="text/javascript" src="js/post_script.js"></script> -->
     <link rel="stylesheet" type="text/css" media="screen" href="css/normelize.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/styles.css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
-
-    <script src="main.js"></script>
 </head>
 
 <body>
@@ -62,13 +61,11 @@
                         </div>
     
                 <div class="nav-section favorites">
-                        <!-- <span class="title">Favorites</span> -->
+
                     <ul>
                         <li><div class="icons news-feed"></div>News feed</li>         
                         <li><div class="icons Messages"></div>Messages</li> 
                         <li><div class="icons Marketplace"></div>Marketplace</li> 
-                        <!-- <li><div class="icons Photos"></div>Photos</li> 
-                        <li><div class="icons Browse"></div>Browse</li>   -->
                     </ul>     
                 </div>
     
@@ -109,21 +106,91 @@
          </div>
         <!-- --------main starts-------------------------------------------->
         <div class="main">
-            <article><div class="status">
-                <div class="nav">Make post | Photo/video Album | Live</div>
-                <div class="new-story">
-                    <div class="user"><img src="img/user-img.jpg"></div>
-                    <div class="story-preview">
-                        <span class="published">What's on your mind?</span>
+            <article class="user-status">
+                <div class="nav">
+                    <div class="icon make-post"></div>
+                    <span>Make post</span>
+                    <div class="icon make-photo"></div>
+                    <span class="blue">Photo/video Album</span>
+                    <div class="icon make-live"></div>
+                    <span class="blue">Live video</span>
+                </div>
+                <div class="user-post">
+                    <div class="user-img">
+                        <img src="img/user-img.jpg">
                     </div>
-                </div>   
-            </div>
-        </article>
-            <article class="item-1"></article>
-            <article class="item-1"></article>
-            <article class="item-1"></article>
-            <article class="item-1"></article>
+                    <div class="text-area-container">
+                    <textarea class="type" placeholder="What's on your mind?"></textarea>
+                    <button>Post</button>
+                    </div>
+                </div>
+                <div class="attach-files">
+                    <a href="">
+                        <div class="icons photo"></div>Photo/video</a> 
+                    <a href="">
+                        <div class="icons emoji"></div>Feeling/Activity</a> 
+                    <a href="">
+                        <div class="icons more"></div>
+                    </a> 
+                </div>
+            </article>
 
+            <article class="post-content">
+                <div class="post-top">
+                    <div class="user-img">
+                        <img src="img/user-img.jpg">
+                    </div>
+                    <div class="info"> 
+                    <div class="postting-name">Eitan Chen</div>
+                    <div class="text-small">1 hr</div>
+                    </div>
+                    <div class="icons more post">
+                            <div class="post-menu">
+                                <ul>
+                                    <li>Edit post</li>
+                                    <li>Remove post</li>
+                                </ul>
+                            </div>
+                            </div>
+
+                </div>
+                <div class="post-text">את בלוג העיצוב של גוגל אתם מכירים?
+                    אם לא, שמרו לכם כבר עכשיו במועדפים. בעיקר אם אתם עובדים על בסיס מוצרים של גוגל.
+                    בבלוג מפורסמים מאמרים (באנגלית) שונים, מהכרזות, דרך מקרי בוחן ועד מאמרים מעשיים, שיעזרו לכם לעצב טוב יותר ולנצל ביעילות רבה יותר את המוצרים של גוגל.
+                </div>
+                <div class="post-media">
+                    <img src="https://external.ftlv5-1.fna.fbcdn.net/safe_image.php?d=AQD6pdcFxPs2eNbV&w=540&h=282&url=https%3A%2F%2Fdesign.google%2Fimages%2Fgeneric-share.jpg&cfs=1&upscale=1&fallback=news_d_placeholder_publisher&_nc_hash=AQAhbS310x1T6nwy">
+                </div>
+                <div class="post-react-buttons">
+                    <div class="react-button like">
+                        <div class="icon"></div>Like</div>
+                    <div class="react-button comment">
+                        <div class="icon"></div>Comment</div>
+                    <div class="react-button share">
+                        <div class="icon"></div>Share</div>
+                </div>
+                <div class="post-reactions"></div>
+                <div class="post-friends-comments">
+                    <div class="post-top">
+                        <div class= "user-img"><img src="img/user-img.jpg"></div>
+                        <div class="info"> 
+                        <div class="postting-name">Eitan Chen</div>
+                        <div class="text-small">יואב ההורס המון מזל טוב אוהבת אהובה</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="post-user-comments">
+                        <div class="post-top">
+                                <div class= "user-img"><img src="img/user-img.jpg"></div>
+                                <div class="text-area-container">
+                                        <form>
+                                             <input type="text" placeholder="Write a comment">
+                                        </form>
+                                        <div class="emoji"></div>
+                                </div>
+                                </div>
+                </div> 
+            </article>
         </div>
         <!-- --------sidebar starts-------------------------------------------->
         <div class="side-bar">
@@ -166,6 +233,7 @@
 
         </div>
     </div>
+    <script type="text/javascript" src="js/post_script.js"></script>
 </body>
 
 </html>
