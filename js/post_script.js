@@ -124,7 +124,7 @@ class User{
         this.editedText= this.el.querySelector('.post-text .post-text.edit');
         this.textArea2= this.editedText.querySelector('textarea');
         this.text2Save = this.textArea2.value;
-        this.textarea2Edit.innerHTML=`<div class="post-text">${this.approvalText}</div>`;
+        this.textarea2Edit.innerHTML=`<div class="post-text">${this.text2Save}</div>`;
     }
 
   }
