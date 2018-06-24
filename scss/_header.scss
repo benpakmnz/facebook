@@ -1,3 +1,144 @@
+<<<<<<< HEAD
+.header{
+    position: fixed;
+    background-color: $facebook-color;
+    height: $header-height;
+    width: 100%;
+    top: 0px;
+
+                .header-container{
+            display: grid;
+            width: 1011px;
+            height: 41px;
+            grid-template-columns: 70% 30%;
+            grid-gap: $gap;
+            align-self: center;
+            align-items: center;
+            margin: auto auto;
+        }
+        
+        .logo{
+            background-image: url(../img/2PR36jF6Xbk.png);
+            background-repeat: no-repeat;
+            background-size: auto;
+            background-position: -125px -305px;
+            display: block;
+            height: 24px;
+            outline: none;
+            overflow: hidden;
+            text-indent: -999px;
+            white-space: nowrap;
+            width: 24px;  
+            margin-right: 6px;
+        }
+        form{
+            width: 655px;
+            display: flex;
+            align-content: center;
+        
+        }
+        form .button{
+            background-image: url(../img/2PR36jF6Xbk.png);
+            background-repeat: no-repeat;
+            background-size: auto;
+            background-position: -43px -264px;
+            height: 15px;
+            width: 15px; 
+            margin: auto 0;
+        }
+
+        input[type="text"]{
+            width: 80%;
+            height: 18px;
+            margin-right: 10px;
+            padding-left: 5px;
+            size: 14px
+        }
+        
+        .left, .right{
+            display: flex;
+            align-content: center;
+        }
+
+        .header-buttons{
+            color: white;
+            text-decoration: none;
+        }
+        
+        .userAndHome{
+            display:flex;
+            align-items: center;
+            height: 24px;
+            // width: 200px;
+            // margin-right: 20px;
+            .user, .home{
+                display: flex;
+                align-items: center;
+                border-right: solid 1px rgb(85, 85, 85);
+                height: 16px;
+                padding: 0 10px 0 10px;
+                img{
+                    @include user_pic(24px,24px);
+                    margin-right: 5px;
+                    }
+                }
+                .user:hover,.home:hover{
+                    background-color: rgba(128, 128, 128, .5);
+                    height: 28px;
+                }
+
+        }
+
+        .icons-left{
+            display: flex;
+            justify-content: center;
+            border-right: solid 1px rgb(85, 85, 85);
+            margin-right: 5px;
+            width: 124px;
+        }
+        .icons-right{
+            display: flex;
+            justify-items: center;
+            align-items: center;
+            justify-self: flex-end;
+
+        }
+        .header-icons{
+            width: 24px;
+            height: 24px;
+            display: flex;
+            background-image: url('../img/header-icons.png');
+            opacity: .6;
+            margin: auto 1px;
+
+        }
+        .friends-request{
+            background-position: 0 -467px;
+        }
+
+        .Messages{
+            background-position: 0 -717px;
+        }
+
+        .notifications{
+            background-position: 0 -617px;
+        }
+        .help{
+            background-position: 0 -1174px;
+            height: 20px;
+        }
+        .user-pages{
+            height: 20px;
+            background-position: 0 -1313px;
+        }
+    }
+    
+
+
+
+
+
+=======
 .header{
     position: fixed;
     background-color: $facebook-color;
@@ -136,3 +277,4 @@
 
 
 
+>>>>>>> 60769f29710503677e55a5c6c07a62fc7f2094b9

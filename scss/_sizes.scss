@@ -1,3 +1,66 @@
+<<<<<<< HEAD
+$gap: 10px;
+$nav-width: 155px;
+$main-width: 500px;
+$article-width: $main-width - 50px;
+$side-width: 310px;
+$header-height: 42px;
+$padding: 10px;
+$bold: 400;
+$margin: 5px 10px 10px 10px;
+$radius: 50px;
+$border: solid 1px $gray;
+
+@mixin user_pic($width,$height){
+align-content: center;
+justify-content: center;
+background-repeat: no-repeat;
+background-size: auto;
+border-radius: $radius;
+width: $width;
+height: $height;
+}
+
+.text-small{
+    font-size: 12px;
+    line-height: 16px;
+}
+
+@mixin userPic-small{
+         @include user_pic(24px , 24px);
+   }
+   @mixin userPic-small-meduim{
+    @include user_pic(32px , 32px);
+}
+   @mixin userPic-meduim{
+       @include user_pic(44px , 44px);
+   }
+   @mixin userPic-large{
+        @include user_pic(50px , 50px);
+   }
+
+@mixin userAndStories($width , $margin){
+    display: flex;
+    align-items: center;
+    margin:$margin;
+    width: $width;
+}
+.user{
+    @include user_pic(56px, 56px);
+    display: flex;
+    margin-right: 10px;
+}
+    img{
+        @include userPic-large;
+        margin: auto auto;
+    } 
+
+    @mixin icon($width , $height , $image){
+        width: $width;
+        height: $height;
+        display: inline-block;
+        background-image: $image;
+=======
 $gap: 20px;
 $nav-width: 185px;
 $main-width: 500px;
@@ -59,4 +122,5 @@ height: $height;
         height: $height;
         display: inline-block;
         background-image: $image;
+>>>>>>> 60769f29710503677e55a5c6c07a62fc7f2094b9
     }
