@@ -7,8 +7,20 @@ class User{
       return `${this.name} ${this.lastname}`;
     }
   }
-  
+//   class time{
+//       constructor(days, hours , minutes){
+//           this.date = new Date();
+//           this.days = this.date.getTime(days);
+//           this.hours = this.date.getTime(hours);
+//           this.minutes = this.date.getTime(minutes);
+//       }
+//       timePassed(){
+//         let minutes = 1000 * 60;
+//         let hours = minutes * 60;
+//         let days = hours * 24;
 
+//       }
+//   }
   
   class Feed {
     constructor(feedEl){
@@ -31,7 +43,7 @@ class User{
   }
   
   class Post{
-    constructor(postBody , author ){
+    constructor(postBody , author){
       
       this.el = document.createElement('article');
       this.el.className = "post-content";
@@ -42,7 +54,7 @@ class User{
       </div>
       <div class="info">
           <div class="postting-name">${author.fullname}</div>
-          <div class="text-small">1 hr</div>
+          <div class="text-small">${new Date()}</div>
       </div>
       <div class="icons more post">
           <div class="post-menu">
