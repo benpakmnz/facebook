@@ -1,3 +1,32 @@
+fetch('http://127.0.0.1:3000')
+.then((data) => {
+  data.json()
+    .then((res) => {
+      res.posts.forEach(element => {
+        createPrePost(element.name , element.lastname , element.message , element.likes);
+        
+
+      });
+    });
+});
+
+function createPrePost(name, lastname, message , likes){
+    this.feedEl = document.querySelector('.main');
+    let postBody = message;
+    this.user = new User(name, lastname);
+    let post = new Post(postBody, this.user);
+    this.feedEl.insertBefore(post.el, this.feedEl.children[1]);
+    this.reaction = this.feedEl.children[1].querySelector('.reaction-status');
+    this.reactionCounter = likes;
+    this.reactionStatus = this.reaction.querySelector('span');
+    console.log(this.reactionStatus);
+    this.reactionStatus.innerText = this.reactionCounter;
+    this.reaction.style.display = "flex";  
+
+  }  
+
+
+
 class User{
     constructor(name, lastname){
       this.name = name;
@@ -28,7 +57,6 @@ class User{
       this.user = new User('Benny', 'Pakman');
       this.postButton = document.querySelector('button');
       this.textArea = document.querySelector('textarea');
-      // this.likeStatus = document.querySelector('react-button.like');
       this.postButton.addEventListener('click', () => this.createPost());
 
     }
@@ -39,6 +67,7 @@ class User{
       let post = new Post(postBody, this.user);
       this.feedEl.insertBefore(post.el, this.feedEl.children[1]);
     }
+
     
   }
   
@@ -120,7 +149,7 @@ class User{
       console.log(this.reactionStatus);
       this.reactionStatus.innerText = this.reactionCounter;
       this.reaction.style.display = "flex";  
-      
+
     }
     editPost(){
         this.textarea2Edit = this.el.querySelector('.post-text');
