@@ -199,9 +199,9 @@ class Post{
                     <img src="img/user-img.jpg">
                 </div>
                 <div class="text-area-container">
-                    <form>
+                        <form>
                         <input type="text" placeholder="Write a comment"></input>
-                    </form>
+                        </form>
                     <div class="emoji">
                         <button>post</button>
                         <div class="commentEmojiIcon"></div>
@@ -221,7 +221,16 @@ class Post{
         this.postEditButton = this.el.querySelector('.post-top .icons.more.post ul li:nth-child(1)');
         this.postEditButton.addEventListener('click', () => this.editPost());
         this.postCommentButton = this.el.querySelector('.post-user-comments .add-comment .text-area-container .emoji');
-        this.postCommentButton.addEventListener('click', () => this.addComment());
+        this.commentInput = this.el.querySelector('input');
+        this.commentInput.addEventListener("keydown", (event) => {
+            if (event.key === "Enter"){
+                event.preventDefault();
+                this.addComment();
+            }
+        })
+        
+        // ('click', () => this.addComment());
+        
     }
     remove() {
         this.el.parentNode.removeChild(this.el);
