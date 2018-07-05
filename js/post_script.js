@@ -274,7 +274,7 @@ class Post{
         <div class="post-top">
             <div class= "user-img"><img src="img/user-img.jpg"></div>
             <div class="info"> 
-                <div class="postting-name"></div>
+                <div class="postting-name">Benny Pakman</div>
                 <div class="text-small">${this.commentText}</div>
             </div>
         </div> `;
