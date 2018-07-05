@@ -222,14 +222,10 @@ class Post{
         this.postEditButton.addEventListener('click', () => this.editPost());
         this.postCommentButton = this.el.querySelector('.post-user-comments .add-comment .text-area-container .emoji');
         this.commentInput = this.el.querySelector('input');
-        this.commentInput.addEventListener("keydown", (event) => {
-            if (event.key === "Enter"){
-                event.preventDefault();
-                this.addComment();
-            }
-        })
+        this.postCommentButton.addEventListener('click', () => this.addComment());
         
-        // ('click', () => this.addComment());
+        
+    
         
     }
     remove() {
@@ -278,7 +274,7 @@ class Post{
         <div class="post-top">
             <div class= "user-img"><img src="img/user-img.jpg"></div>
             <div class="info"> 
-                <div class="postting-name">kkkk</div>
+                <div class="postting-name"></div>
                 <div class="text-small">${this.commentText}</div>
             </div>
         </div> `;
