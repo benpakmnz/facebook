@@ -15,16 +15,19 @@ fetch('http://127.0.0.1:3000')
   data.json()
     .then((res) => {
       res.posts.forEach(element => {
-        createPrePost(element.name , element.lastname , element.message , element.likes);
+        // createPrePost(element.name , element.lastname , element.message , element.likes);
+        // new Feed(mainEl, 7);
+
+        new PostType1(element.message , element.name, pic)
       });
-    });
+    })
 });
 
 function createPrePost(name, lastname, message , likes){
     this.feedEl = document.querySelector('.main');
     let postBody = message;
     this.user = new User(name, lastname);
-    let post = new Post(postBody, this.user);
+    let post = new PostType1(postBody, this.user);
     this.feedEl.insertBefore(post.el, this.feedEl.children[1]);
     this.reaction = this.feedEl.children[1].querySelector('.reaction-status');
     this.reactionCounter = likes;
@@ -40,7 +43,6 @@ function createPrePost(name, lastname, message , likes){
         .then(user => new User(user))
         }
     }
-    
 // for the UserProfilePictureService:
 //     1. request data from server
 //     2. then convert it to json
@@ -51,7 +53,6 @@ function createPrePost(name, lastname, message , likes){
             .then(profilePics => profilePics)
         }
     }
-    let userProfilePicsService = new UserProfilePicsService();
 // for the PostService: 
 //     1. request data from server
 //     2. then convert it to json
@@ -60,7 +61,7 @@ function createPrePost(name, lastname, message , likes){
         getPosts(user) {
             return fetch('https://jsonplaceholder.typicode.com/posts/?userId=' + user.id)
             .then(res => res.json())
-            .then(posts => posts.map(post => new Post(post.body, user)))
+            .then(posts => posts.map(post => new PostType1(post.body, user)))
         }
 
     }
@@ -68,6 +69,7 @@ function createPrePost(name, lastname, message , likes){
 // create instance for all the services (so we have accses to them)  
 let userService = new UserService();
 let postsService = new PostsService();
+let userProfilePicsService = new UserProfilePicsService();
 // let userProfilePicsService = new UserProfilePicsService();
 
 
@@ -79,7 +81,6 @@ class User {
         this.id = userObj.id;
     }
 }
-
 // feed element will be the one class that wil merge all 
 // the data and append it as a full post element in the dome  
 
@@ -87,6 +88,7 @@ class User {
 // feedEl will select the HTML area that suppose to hold the new post
 // userId is the argument that gives us the specific user/post/picture 
 // it mainly will be use in the services @ begining of the script 
+
 class Feed {
     constructor(feedEl , userId){
         this.feedEl = feedEl;
@@ -116,10 +118,7 @@ class Feed {
         userProfilePicsService
             .getUserPics(this.user)
             .then(pic => this.onProfilePics(pic));
-            // .then(profilePic => this.onProfilePic(profilePic.url));
-            
-            
-            
+            // .then(profilePic => this.onProfilePic(profilePic.url));         
     }
 // onUser function will use the userName data & send it to 
 // diferent functions that will result it to appear in the HTML areas 
@@ -148,7 +147,7 @@ class Feed {
     createPost() {
         let postBody = this.textArea.value;
         this.textArea.value = '';
-        let post = new Post(postBody, this.user, this.profilePicUrl);
+        let post = new PostType1(postBody, this.user, this.profilePicUrl);
         this.appendPost(post.el);
       }
     appendPost(postToAppend){
@@ -156,7 +155,17 @@ class Feed {
     }
      
 }
-class Post{
+
+class PostTemplate{
+    constructor(el){
+        this.el = el;
+        this.editEl = new EditEl(this.el);
+        this.reaction = new Reaction(this.el);
+        this.removeEl = new RemoveEl(this.el);
+        this.comments = new Comments(this.el);
+    }
+}
+class PostType1{
     constructor(postBody , author, pic){
         this.el = document.createElement(`article`);
         this.el.className = `post-content`;
@@ -212,57 +221,17 @@ class Post{
                 </div>
             </div>
         </div>`;  
-        
-        this.removeButton = this.el.querySelectorAll('li')[1];
-        this.removeButton.addEventListener('click', () => this.remove());
-        this.likeButton = this.el.querySelector('.react-button.like');
-        this.likeButton.addEventListener('click', () => this.addReaction());
-        this.reactionCounter= 0;
-        this.postEditButton = this.el.querySelector('.post-top .icons.more.post ul li:nth-child(1)');
-        this.postEditButton.addEventListener('click', () => this.editPost());
+        this.postTemplate = new PostTemplate(this.el);
+    }
+}
+
+class Comments{
+    constructor(el){
+        this.el = el;
         this.postCommentButton = this.el.querySelector('.post-user-comments .add-comment .text-area-container .emoji');
         this.commentInput = this.el.querySelector('input');
-        this.postCommentButton.addEventListener('click', () => this.addComment());
-        
-        
-    
-        
+        this.postCommentButton.addEventListener('click', () => this.addComment()); 
     }
-    remove() {
-        this.el.parentNode.removeChild(this.el);
-      }
-
-    addReaction() { 
-    this.reaction = this.el.querySelector('.reaction-status');
-    this.reactionStatus = this.reaction.querySelector('span');
-        // if(this.reactionStatus.innerHTML>0){
-        //     this.number = this.reactionStatus.innerHTML;
-        //     console.log (this.number)
-        //     this.reactionCounter + this.number + 1;
-        // }else{
-            this.reactionCounter ++;
-        // }
-    this.reactionStatus.innerText = this.reactionCounter;
-    this.reaction.style.display = "flex";  
-
-    }
-    editPost(){
-        this.textarea2Edit = this.el.querySelector('.post-text');
-        this.text2Edit = this.textarea2Edit.innerText;
-        this.textarea2Edit.innerHTML=`
-        <div class="post-text edit"><textarea rows="4" cols="50">${this.text2Edit}</textarea>
-        <button>Post</button>
-        `
-        this.postEditApproveButton = this.el.querySelector('.post-text .post-text.edit button');
-        this.postEditApproveButton.addEventListener('click', () => this.editApprove());
-    }
-    editApprove(){
-        this.editedText= this.el.querySelector('.post-text .post-text.edit');
-        this.textArea2= this.editedText.querySelector('textarea');
-        this.text2Save = this.textArea2.value;
-        this.textarea2Edit.innerHTML=`<div class="post-text">${this.text2Save}</div>`;
-    }
-
     addComment() {
         // this.userCommentForm = this.el.querySelector('.post-user-comments');
         this.commentBody = this.el.querySelector('input')
@@ -282,6 +251,66 @@ class Post{
         this.commentBody.value = ' ';
         
       }
+}
+
+class EditEl {
+    constructor(el){
+        this.el= el;
+        this.postEditButton = this.el.querySelector('.post-top .icons.more.post ul li:nth-child(1)');
+        this.postEditButton.addEventListener('click', () => this.editPost());
+    }
+    editPost(){
+        this.textarea2Edit = this.el.querySelector('.post-text');
+        this.text2Edit = this.textarea2Edit.innerText;
+        this.textarea2Edit.innerHTML=`
+        <div class="post-text edit"><textarea rows="4" cols="50">${this.text2Edit}</textarea>
+        <button>Post</button>
+        `
+        this.postEditApproveButton = this.el.querySelector('.post-text .post-text.edit button');
+        this.postEditApproveButton.addEventListener('click', () => this.editApprove());
+    }
+    editApprove(){
+        this.editedText= this.el.querySelector('.post-text .post-text.edit');
+        this.textArea2= this.editedText.querySelector('textarea');
+        this.text2Save = this.textArea2.value;
+        this.textarea2Edit.innerHTML=`<div class="post-text">${this.text2Save}</div>`;
+    }
+}
+
+class Reaction {
+    constructor(el) {
+        this.el= el;
+        this.likeButton = this.el.querySelector('.react-button.like');
+        this.likeButton.addEventListener('click', () => this.addReaction());
+        this.reactionCounter= 0;
+    }
+    addReaction() { 
+        this.reaction = this.el.querySelector('.reaction-status');
+        this.reactionStatus = this.reaction.querySelector('span');
+            // if(this.reactionStatus.innerHTML>0){
+            //     this.number = this.reactionStatus.innerHTML;
+            //     console.log (this.number)
+            //     this.reactionCounter + this.number + 1;
+            // }else{
+                this.reactionCounter ++;
+            // }
+        this.reactionStatus.innerText = this.reactionCounter;
+        this.reaction.style.display = "flex";  
+    
+    }
+
+
+}
+
+class RemoveEl {
+    constructor(el) {   
+        this.el =el;
+    this.removeButton = this.el.querySelectorAll('li')[1];
+    this.removeButton.addEventListener('click', () => this.remove());
+    }
+    remove() {
+        this.el.parentNode.removeChild(this.el);
+    }
 
 }
 
