@@ -14,28 +14,26 @@ fetch('http://127.0.0.1:3000')
 .then((data) => {
   data.json()
     .then((res) => {
+      localStorage.setItem("post", JSON.stringify(res)) 
       res.posts.forEach(element => {
-        // createPrePost(element.name , element.lastname , element.message , element.likes);
-        // new Feed(mainEl, 7);
-
-        new PostType1(element.message , element.name, pic)
+        let feedEl = document.querySelector('.main');
+        let post = new PostType1(element.message, element , element.userProfilePic);
+        feedEl.insertBefore(post.el, feedEl.children[1]);
+        new Reaction(post.el , element.likes).addReaction(0)
       });
-    })
-});
+    });
+})
+.catch((error) => {
+    console.log('error');
+    let data = JSON.parse(localStorage.getItem("post"));
+        data.posts.forEach(element => {
+            let feedEl = document.querySelector('.main');
+            let post = new PostType1(element.message, element.name , element.userProfilePic);
+            feedEl.insertBefore(post.el, feedEl.children[1]);
 
-function createPrePost(name, lastname, message , likes){
-    this.feedEl = document.querySelector('.main');
-    let postBody = message;
-    this.user = new User(name, lastname);
-    let post = new PostType1(postBody, this.user);
-    this.feedEl.insertBefore(post.el, this.feedEl.children[1]);
-    this.reaction = this.feedEl.children[1].querySelector('.reaction-status');
-    this.reactionCounter = likes;
-    this.reactionStatus = this.reaction.querySelector('span');
-    this.reactionStatus.innerText = this.reactionCounter;
-    this.reaction.style.display = "flex";  
+          });
+        });   
 
-  }  
     class UserService{
         getUserName(id) {
             return fetch('https://jsonplaceholder.typicode.com/users/' + id)
@@ -61,7 +59,7 @@ function createPrePost(name, lastname, message , likes){
         getPosts(user) {
             return fetch('https://jsonplaceholder.typicode.com/posts/?userId=' + user.id)
             .then(res => res.json())
-            .then(posts => posts.map(post => new PostType1(post.body, user)))
+            .then(posts => posts.map(post => new PostType1(post.body, user , "https://scontent.ftlv2-1.fna.fbcdn.net/v/t1.0-9/16195861_10154444512113915_2095302407570852635_n.jpg?_nc_cat=0&oh=f34fa57c3d8f43ed96aab9cf8fc4cc33&oe=5BA25ABA")))
         }
 
     }
@@ -160,18 +158,18 @@ class PostTemplate{
     constructor(el){
         this.el = el;
         this.editEl = new EditEl(this.el);
-        this.reaction = new Reaction(this.el);
+        this.reaction = new Reaction(this.el , 0);
         this.removeEl = new RemoveEl(this.el);
         this.comments = new Comments(this.el);
     }
 }
 class PostType1{
-    constructor(postBody , author, pic){
+    constructor(postBody , author , userPic){
         this.el = document.createElement(`article`);
         this.el.className = `post-content`;
         this.el.innerHTML =`
             <div class="post-top">
-            <div class="user-img"><img src="${pic}">
+            <div class="user-img"><img src="${userPic}">
             </div>
             <div class="info">
                 <div class="postting-name">${author.fullname}</div>
@@ -278,22 +276,18 @@ class EditEl {
 }
 
 class Reaction {
-    constructor(el) {
+    constructor(el , counter) {
         this.el= el;
+        this.reactionCounter= counter;
         this.likeButton = this.el.querySelector('.react-button.like');
-        this.likeButton.addEventListener('click', () => this.addReaction());
-        this.reactionCounter= 0;
-    }
-    addReaction() { 
+        this.likeButton.addEventListener('click', () => this.addReaction(1));
+        
+        }
+
+    addReaction(calculate) { 
         this.reaction = this.el.querySelector('.reaction-status');
         this.reactionStatus = this.reaction.querySelector('span');
-            // if(this.reactionStatus.innerHTML>0){
-            //     this.number = this.reactionStatus.innerHTML;
-            //     console.log (this.number)
-            //     this.reactionCounter + this.number + 1;
-            // }else{
-                this.reactionCounter ++;
-            // }
+        this.reactionCounter =  this.reactionCounter + calculate;
         this.reactionStatus.innerText = this.reactionCounter;
         this.reaction.style.display = "flex";  
     
