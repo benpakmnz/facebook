@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .section{
     padding:$padding; 
     margin-bottom: 10px;
@@ -21,28 +20,4 @@
         span{
             display: block;
         }
-=======
-.section{
-    padding:$padding; 
-    margin-bottom: 10px;
-    background-color: white;
-    border: 1px solid #dddfe2;
-    border-radius: 5px;
-}
-
-.new-story{
-    @include userAndStories(284px, 0);    
-    }
-.new-story .user{
-    border: solid  $facebook-color 1px;
-    }
-    
-    .story-preview{
-        .user-title{
-            color: $facebook-color;
-        }
-        span{
-            display: block;
-        }
->>>>>>> 60769f29710503677e55a5c6c07a62fc7f2094b9
     }

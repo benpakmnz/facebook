@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .container{
     display: grid;
     grid-gap: $gap;
@@ -18,25 +17,4 @@
 }
 .main{
     grid-column: 2/3; 
-=======
-.container{
-    display: grid;
-    grid-gap: $gap;
-    grid-template-columns: $nav-width $main-width $side-width;
-    width:1011px;
-    min-height: 100%;
-    margin: 70px auto 0 auto ;
-    
-}
-
-.nav-bar{
-    grid-column: 1/2;
-    height: 100%;
-}
-.side-bar{
-    grid-column: 3/4;  
-}
-.main{
-    grid-column: 2/3; 
->>>>>>> 60769f29710503677e55a5c6c07a62fc7f2094b9
 }

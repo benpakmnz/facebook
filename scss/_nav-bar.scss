@@ -1,86 +1,8 @@
-<<<<<<< HEAD
 .nav-bar{
     height: 100%;
    .nav-bar-container{
         position: fixed;
-        width: 155px;
-    }
-        ul{
-        list-style-type: none;
-        padding-left: 0;
-        }
-    
-        li{
-            display:flex;
-            align-items: center;
-            color: #1d2129;
-            font-family: 'Roboto', sans-serif; 
-            height: 26px;
-            padding-left: 5px;
-            border: solid 1px #E9EBEE;
-            }
-    
-        ul :hover{
-            background-color: #F6F7F9;
-            border: solid 1px #e0e0e0;          
-            }
-    
-        .icons{     
-            background-image: url('../img/nav-bar/nav-bar-icons.png');
-            width: 20px;
-            height:20px;
-            margin-right: 5px;
-            display:inline-block;
-        }
-        .news-feed{
-            background-position: 0 -1485px;
-        }  
-        .Messages{
-            background-position: 0 -1044px;
-        }  
-        .Marketplace{
-            background-position: 0 -1443px;
-        }  
-        .Photos{
-            background-position: 0 -1674px;
-        }  
-        .Browse{
-            background-position: 0 -1611px;
-        }  
-        .nav-section span.title{
-            font-weight: bold;
-        }
-        .userAndHome{
-            display:flex;
-            align-items: center;
-            height: 24px;
-            width: 200px;
-            margin-right: 20px;
-            .user, .home{
-                display: flex;
-                align-items: center;
-                border-right: solid 1px rgb(85, 85, 85);
-                height: 16px;
-                padding: 0 10px 0 10px;
-                img{
-                    @include user_pic(24px,24px);
-                    margin-right: 5px;
-                    }
-                }
-                .user:hover,.home:hover{
-                    background-color: rgba(128, 128, 128, .5);
-                    height: 28px;
-                }
-
-        }
-}
-
-=======
-.nav-bar{
-    height: 100%;
-   .nav-bar-container{
-        position: fixed;
-        width: 185px;
+        width: 150px;
     }
     ul{
         list-style-type: none;
@@ -152,4 +74,3 @@
         }
 }
 
->>>>>>> 60769f29710503677e55a5c6c07a62fc7f2094b9
