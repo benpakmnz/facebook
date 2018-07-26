@@ -176,7 +176,7 @@ img {
 
 .nav-bar .nav-bar-container {
   position: fixed;
-  width: 155px;
+  width: 150px;
 }
 
 .nav-bar ul {
@@ -429,7 +429,7 @@ img {
 .main article.post-content .post-top {
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: 44px 390px 20px;
+  grid-template-columns: 44px max-content 20px;
   margin: 10px;
 }
 
@@ -526,35 +526,8 @@ img {
   background-position: 0 -500px;
 }
 
-.main article.post-content .post-friends-comments {
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: 44px 390px 20px;
-  margin: 10px;
-}
-
-.main article.post-content .post-friends-comments .user-img img {
-  align-content: center;
-  justify-content: center;
-  background-repeat: no-repeat;
-  background-size: auto;
-  border-radius: 50px;
-  width: 44px;
-  height: 44px;
-}
-
-.main article.post-content .post-friends-comments .info {
-  margin: auto 0;
-}
-
-.main article.post-content .post-friends-comments .info .postting-name {
-  font-size: 14px;
-  font-weight: 600;
-  color: #365899;
-}
-
-.main article.post-content .post-friends-comments .info .time {
-  font-size: 12px;
+.main article.post-content .post-friends-comments .post-top {
+  margin-bottom: 5px;
 }
 
 .main article.post-content .post-friends-comments .info {
@@ -562,6 +535,12 @@ img {
   border-radius: 18px;
   padding: 8px 10px;
   max-width: 390px;
+}
+
+.main article.post-content .post-friends-comments .comments-reactions {
+  padding-left: 75px;
+  margin-bottom: 15px;
+  font-size: 12px;
 }
 
 .main article.post-content .post-user-comments {
